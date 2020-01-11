@@ -202,7 +202,13 @@ func getSupId() -> Int {
 func getUserRole() -> UserRole{
     return UserRole(rawValue: UserDefaults.standard.integer(forKey: UserInfo.userTypeID.rawValue)) ?? .none
 }
+func methodAPI(){
+            let data1 =  try JSONSerialization.data(withJSONObject: param , options: JSONSerialization.WritingOptions.prettyPrinted)
+            let convertedString = String(data: data1, encoding: String.Encoding.utf8)
+            let jsonData = Data((convertedString?.utf8)!)
+            let daa = try JSONDecoder().decode(Model_EventHire.self, from: jsonData)
 
+}
 
 
 //MARK:- custom alert
